@@ -1,0 +1,152 @@
+@font-face {
+    font-family: "prestige-elite-std", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "nocturne-serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*.sidebar { grid-area: sidebar; 
+    height: 100%;
+    width: 14vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,0.06);
+    color: #545454;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0.5em 0.5em 2em;
+}
+
+.sidebar a:hover {
+  color: aquamarine;
+}
+
+.sidebar a {
+    color: #545454;
+    font-size: 24px;
+}*/
+
+img.center {
+    position: absolute;
+    z-index: -1;
+    top: 50vh;
+    left: 25vw;
+    display: none;
+    border:0;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+.head {
+    position: fixed;
+    z-index: 2;
+    padding-left: 1vw;
+    font-family: "prestige-elite-std", monospace;
+    
+}
+
+.head a{
+    color: #000;
+    text-decoration: none;
+}
+
+.body { grid-area: body; 
+    z-index: 1;
+    padding-left: 2vw;
+    position: fixed;
+    width: 40vw;
+    /*    background: #fff;*/
+/*    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);*/
+    color: #545454;
+    font-family: "prestige-elite-std", monospace;
+    font-size: 18px;
+/*    line-height: 1.5;*/
+}
+
+.body h2 {
+    text-align: left;
+    font-family: "nocturne-serif", serif;
+    font-weight: 800;
+    font-style: bold;
+    margin-top: 50vh;
+}
+
+/* 
+Make it so the article list text wraps and does not overlap the title of the issue. It's okay if it overlaps the pictures though!
+*/
+
+.article_list { grid-area:body;
+    align-content: center;
+    margin-left: calc(70vw-10px);
+    top: 0;
+    z-index: 2;
+    color: #545454;
+    text-align: right;
+    font-family: "prestige-elite-std", monospace;
+    font-size: 16px;
+    padding-right: 10px;
+}
+
+.article_list h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    font-family: "nocturne-serif", serif;
+    font-style: normal;
+    line-height: 0.1em;
+}
+
+.article_list a {
+    color: #222;
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.article_list a:hover + img.center {
+    display:block;
+    transition: all ease-in-out 1s;
+}
+
+a:hover {
+    color: #fef;
+    text-decoration: underline;
+}
+
+samp {
+    display: none;
+}
+
+img {
+/*    animation: colorize 1s cubic-bezier(0, 0, .78, .36) 1;*/
+    background: transparent;
+/*    border: 10px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    margin: 1.3em auto;*/
+    max-width: 95%;
+}
+
+@keyframes colorize {
+    0% {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+    100% {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+}
