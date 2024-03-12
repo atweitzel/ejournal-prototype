@@ -15,31 +15,6 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
-/*.sidebar { grid-area: sidebar; 
-    height: 100%;
-    width: 14vw;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: #fff;
-    box-shadow: 0 0 2px rgba(0,0,0,0.06);
-    color: #545454;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 0.5em 0.5em 2em;
-}
-
-.sidebar a:hover {
-  color: aquamarine;
-}
-
-.sidebar a {
-    color: #545454;
-    font-size: 24px;
-}*/
-
 img.center {
     position: absolute;
     z-index: -1;
@@ -56,10 +31,11 @@ img.center {
 
 .head {
     position: fixed;
+    width: 100vw;
     z-index: 2;
     padding-left: 1vw;
     font-family: "prestige-elite-std", monospace;
-    
+    margin-right: 5vw;
 }
 
 .head a{
@@ -71,9 +47,7 @@ img.center {
     z-index: 1;
     padding-left: 2vw;
     position: fixed;
-    width: 40vw;
-    /*    background: #fff;*/
-/*    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);*/
+    width: 400px;
     color: #545454;
     font-family: "prestige-elite-std", monospace;
     font-size: 18px;
@@ -87,10 +61,6 @@ img.center {
     font-style: bold;
     margin-top: 50vh;
 }
-
-/* 
-Make it so the article list text wraps and does not overlap the title of the issue. It's okay if it overlaps the pictures though!
-*/
 
 .article_list { grid-area:body;
     align-content: center;
