@@ -65,8 +65,9 @@ img.center {
 .article_list { grid-area:body;
     align-content: center;
     margin-left: calc(70vw-10px);
+    padding-left: 400px;
     top: 0;
-    z-index: 2;
+    z-index: 0;
     color: #545454;
     text-align: right;
     font-family: "prestige-elite-std", monospace;
