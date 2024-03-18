@@ -53,7 +53,7 @@ html {
     }
 }
 
-.head {
+.navbar {
     position: fixed;
     top: 0;
     height: 3.5rem;
@@ -64,7 +64,7 @@ html {
     font-family: "prestige-elite-std", monospace;
 }
 
-.head a{
+.navbar a{
     color: #545454;
     text-decoration: none;
 }
