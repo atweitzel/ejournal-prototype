@@ -57,11 +57,11 @@ html {
 
 .title {
     width: 100%;
-    margin-bottom: 2rem;
-    text-align: center;
+    margin-bottom: 1rem;
     font-family: "yink", sans-serif;
-    font-size: 14vw;
+    font-size: 11.8vw;
     letter-spacing: 0.5rem;
+    text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -77,14 +77,28 @@ html {
 }
 
 .home {
-    width: 50%;
+    width: 90%;
     margin: 0 auto;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
     -ms-flex-line-pack: center;
-    align-content: center;
     text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .title {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .home {
+        width: 50%;
+    }
+    .title {
+        font-size: 14vw;
+    }
 }
 
 /* Issue 01 formatting */
