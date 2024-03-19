@@ -8,11 +8,40 @@
     font-style: normal;
 }
 
+@font-face { /* used for "logo" text only */
+    font-family: "yink", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+} 
+
 html {
     background: #fff;
     -webkit-font-smoothing: antialiased;
     font-size: 18px;
     color: #222;
+}
+
+/* Define navbar & multipurpose flexbox container first! */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    height: 3.5rem;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    margin: auto;
+    font-family: "prestige-elite-std", monospace;
+    letter-spacing: 0.5;
+}
+
+.navbar a{
+    color: #545454;
+    text-decoration: none;
+}
+
+.navbar h4 {
+    font-family: "yink", sans-serif;
 }
 
 .container: {
@@ -23,6 +52,42 @@ html {
     -ms-flex-align: center;
     -webkit-column-gap: 10px;
 }
+
+/* Landing page formatting */
+
+.title {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: "yink", sans-serif;
+    font-size: 14vw;
+    letter-spacing: 0.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .title {
+        -webkit-animation: shrink-out linear forwards;
+        animation-timeline: view();
+    }
+}
+
+@-webkit-keyframes shrink-out {
+    from {scale: 1.8;}
+    to {scale: 0.5;}
+}
+
+.home {
+    width: 50%;
+    margin: 0 auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    text-align: justify;
+}
+
+/* Issue 01 formatting */
 
 [class*="col-"] {
     width: 100%;
@@ -53,22 +118,6 @@ html {
     }
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    height: 3.5rem;
-    width: 100%;
-    background: #fff;
-    z-index: 100;
-    margin: auto;
-    font-family: "prestige-elite-std", monospace;
-}
-
-.navbar a{
-    color: #545454;
-    text-decoration: none;
-}
-
 .body { 
     color: #545454;
     font-family: "prestige-elite-std", monospace;
@@ -85,13 +134,7 @@ html {
     font-family: "nocturne-serif", serif;
     font-style: bold;
     font-size: 3.9rem;
-    line-height: 1.4; /* definitely fussing over the small stuff here */
-}
-
-@media only screen and (min-width: 768px) { 
-    .body h2 {
-        font-size: 4.6rem;
-    }
+    line-height: 1.4;
 }
 
 .article_list { grid-area:body;
@@ -144,8 +187,7 @@ img.center {
 .article_list a:hover + img.center {
     /* show preview image when hovering link to entry */
     display: block;
-    -webkit-transition: all ease-in-out 1s;
-    transition: all ease-in-out 1s;
+    -webkit-transition: all 1s ease-in-out 1s;
 }
 
 @-webkit-keyframes colorize {
