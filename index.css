@@ -1,10 +1,5 @@
 @font-face {
-    font-family: "prestige-elite-std", monospace;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "nocturne-serif", serif;
+    font-family: "prestige-elite-std", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     font-style: normal;
 }
 
@@ -14,21 +9,33 @@
     font-style: normal;
 } 
 
-html {
-    background: #fff;
-    -webkit-font-smoothing: antialiased;
+:root {
     font-size: 18px;
-    color: #222;
+    -webkit-font-smoothing: antialiased;
+    /* color vars */
+    --text-purple: #6c4e6a;
+    --text-grey: #414141;
+    --bg-white: #fdfdfd;
+    /* size vars */
+    --nav-height: 3.5rem;
+    --home-padding: 1.2rem;
+    --home-max-width: 55rem;
+    --std-text-inc: 1.1rem;
+    }
+
+html {
+    background: var(--bg-white);
+    color: var(--text-purple);
 }
 
-/* Define navbar & multipurpose flexbox container first! */
+/* Define navbar, footer & multipurpose flexbox container first! */
 
 .navbar {
     position: fixed;
     top: 0;
-    height: 3.5rem;
-    width: 100%;
-    background: #fff;
+    height: var(--nav-height);
+    width: 100vw;
+    background: var(--bg-white);
     z-index: 100;
     margin: auto;
     font-family: "prestige-elite-std", monospace;
@@ -36,12 +43,17 @@ html {
 }
 
 .navbar a{
-    color: #545454;
+    color: var(--text-grey);
     text-decoration: none;
 }
 
 .navbar h4 {
     font-family: "yink", sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 0;
 }
 
 .container: {
@@ -50,108 +62,307 @@ html {
     display: inline-flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
+    align-items: center;
     -webkit-column-gap: 10px;
+    gap: 10px;
+    margin-top: var(--nav-height);
+}
+
+.footer {
+    bottom: 0;
+    height: var(--nav-height);
+    -ms-flex-line-pack: center;
+    align-content: center;
+    text-align: center;
+}
+
+.footer h4 {
+    display:inline-block;
+    font-size: 2rem;
+    font-family: "yink", sans-serif;
+    margin-inline: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Landing page formatting */
 
 .title {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-top: var(--nav-height);
     font-family: "yink", sans-serif;
-    font-size: 11.8vw;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.4rem;
     text-align: center;
+    padding-top: -10;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100vw;
+}
+
+.title h1 {
+    -webkit-margin-before: calc(var(--nav-height) - 1rem);
+    margin-block-start: calc(var(--nav-height) - 1rem);
+    -webkit-margin-after: var(--nav-height);
+    margin-block-end: var(--nav-height);
 }
 
 @media (prefers-reduced-motion: no-preference) {
     .title {
-        -webkit-animation: shrink-out linear forwards;
+        -webkit-animation: shrink-out linear;
         animation-timeline: view();
     }
 }
 
 @-webkit-keyframes shrink-out {
-    from {scale: 1.8;}
+    from {scale: 1.7;}
     to {scale: 0.5;}
 }
 
+.issue-preview {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    padding-block: 0;
+    margin-bottom: var(--home-padding);
+    text-align: justify;
+}
+
+.issue-preview > :not(img) {
+    padding-inline: var(--home-padding);
+    margin: auto;
+}
+
+.issue-preview > :not(img):first-child {
+    grid-column: 2 / 3;
+    padding-right: clamp(var(--home-padding), 0, 2rem);
+    text-align: justify;
+    text-align-last: right;
+}
+
+.issue-preview > :not(img):last-child {
+    grid-column: 3 / 4;
+    padding-left: clamp(var(--home-padding), 0, 2rem);
+}
+
+/* img are also links, this doesnt do anything
+.issue-preview > img {
+    margin-block: auto;
+}*/
+
+.issue-preview > img:first-child {
+    grid-column: 2 / 3;
+}
+
+.issue-preview > img:last-child {
+    grid-column: 3 / 4;
+}
+
+.issue-preview a > img {
+    /* might need to play with this, or grid size, if images get cut off */
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+}
+
+.issue-desc {
+    font-family: "prestige-elite-std", monospace;
+    margin-bottom: var(--home-padding);
+    color: var(--text-grey);
+}
+
+.issue-desc h5 {
+    font-weight: 800;
+    font-size: 1.2em;
+    font-family: "prestige-elite-std", monospace;
+    margin-bottom: var(--std-text-inc);
+}
+
+.issue-desc a {
+    color: var(--text-purple);
+}
+
+.issue-desc i {
+    padding-bottom: var(--std-text-inc);
+    display: inline;
+}
+
+.issue-desc li {
+    font-family: "prestige-elite-std", monospace;
+    font-size: var(--std-text-inc);
+    list-style: none;
+}
+
+.issue-desc > li:last-child {
+    margin-bottom: var(--home-padding);
+}
+
 .home {
-    width: 90%;
-    margin: 0 auto;
+    font-family: "prestige-elite-std", monospace;
+    font-size: var(--std-text-inc); 
+    /* text details are defined below in body class. need to change the class on issue01.html to avoid doubling */
+    
+    max-width: var(--home-max-width);
+    margin-inline: auto;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -ms-flex-line-pack: center;
     text-align: justify;
+    padding-inline: var(--home-padding);
 }
 
 @media (max-width: 768px) {
     .title {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
+        font-size: 9.4vw;
+        margin-bottom: -50;
+    }
+    @-webkit-keyframes shrink-out {
+    from {scale: 2.9;}
+    to {scale: 0.5;}
+    }
+    .issue-preview a > img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        padding-left: 0.5rem; /* this is a dumb fix */
+        padding-block: var(--home-padding);
+    }
+    .issue-desc {
+        margin-inline: auto;
+        margin-top: var(--home-padding);
+        max-width: 500px;
+        border: dotted var(--text-purple) 2px;
+        
+    }
+    .issue-preview > :not(img):first-child {
+        padding-inline: 0.5rem;
+        text-align: left;
+        text-align-last: left;
+    }
+
+    .issue-preview > :not(img):last-child {
+        padding-inline: 0.5rem;
+        text-align: left;
+    }
+    .issue-preview a {
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
+    }
+    .issue-desc {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2;
     }
 }
 
-@media only screen and (min-width: 768px) {
-    .home {
-        width: 50%;
+@media (min-width: 768px) {
+    .issue-preview { /* may want to adjust min screen width */
+        display: grid;
+        grid-template-columns: 
+            minmax(var(--home-padding), 1fr) 
+            minmax(0, calc(var(--home-max-width) / 2)) 
+            minmax(0, calc(var(--home-max-width) / 2)) 
+            minmax(var(--home-padding), 1fr);
     }
     .title {
-        font-size: 14vw;
+        font-size: 10.7vw;
+        margin-bottom: -40;
+    }
+    .title h1 {
+        -webkit-margin-before: calc(var(--nav-height) - 1rem);
+        margin-block-start: calc(var(--nav-height) - 1rem);
+        -webkit-margin-after: calc(var(--nav-height) - 1rem);
+        margin-block-end: calc(var(--nav-height) - 1rem);
     }
 }
 
-/* Issue 01 formatting */
+.tagline {
+    font-size: 1rem;
+    max-width: calc(1.5 * var(--home-max-width));
+/*    margin-top: -50;*/
+    margin-bottom: 40;
+}
+
+/* 
+*** Issue 01 formatting  ***
+*/
 
 [class*="col-"] {
     width: 100%;
-    margin-top: 3.5rem; /* account for nav bar */
-    margin-left: 2px; /* add a little more space on the left or else it looks cramped */
-    margin-right: 2px;
 }
 
-.body h2 {
-    color: #222;
+.col-1 {
+    margin-top: var(--nav-height);
+    margin-bottom: 1rem;
+}
+
+.body h1 {
     text-align: left;
-    font-family: "nocturne-serif", serif;
-    font-style: bold;
-    font-size: 3.9rem;
-    line-height: 1.4;
+    font-family: "yink", sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 3;
+    color: var(--text-purple);
 }
 
-@media only screen and (min-width: 768px) { 
+.body li {
+    list-style: none;
+}
+
+@media (min-width: 768px) { 
     .col-1 {width: 45%; 
-        margin-top: 40vh; /* do not account for nav bar */
-        padding-top: 0;
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
         position: fixed;
-        margin-left: 10px;
+        bottom: var(--nav-height);
+        margin-top: auto;
     }
-    .col-2 {width: 55%; 
+    .col-2 {width: 50%; 
         text-align: right;
-        -webkit-box-flex: 1.25;
-        -ms-flex-positive: 1.25;
-        flex-grow: 1.25;
-        margin-right: 0;
+        margin-top: var(--nav-height)
     }
-    .body h2 {
+    .body h1 {
+        font-size: 4rem;
+            }
+}
+
+@media (min-width: 970px) {
+    .body h1 {
         font-size: 5rem;
     }
 }
 
 .body { 
-    color: #545454;
     font-family: "prestige-elite-std", monospace;
-    font-size: 1.1rem;
+    font-size: var(--std-text-inc);
+    color: var(--text-grey);
 }
 
 .body i {
+    color: var(--text-grey);
     line-height: 2;
 }
 
-.article_list { grid-area:body;
+.body h1 {
+    margin-block: 1.3rem;
+}
+
+.article_list { 
+    grid-area:body;
     z-index: 0;
     text-align: right;
     font-family: "prestige-elite-std", monospace;
@@ -159,15 +370,16 @@ html {
     margin-left: auto;
 }
 
-.article_list h1, h2, h3, h4, h5, h6 {
-    font-family: "nocturne-serif", serif;
-    font-style: normal;
+.article_list h4 {
+    font-family: "prestige-elite-std", monospace;
+    font-weight: 200;
+    font-size:1.5rem;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .article_list a {
-    color: #222;
+    color: var(--text-grey);
     font-size: 2.6rem;
     font-weight: 600;
 }
@@ -210,5 +422,19 @@ img.center {
     }
     100% {
         -webkit-filter: grayscale(0%);
+    }
+}
+
+/* Breakpoints for tiny screens if needed */
+@media (max-width: 374px) {
+    .navbar h4 {
+        position: absolute; 
+        left: -999em;
+    }
+    .col-1 h1 {
+        font-size: 18vw;
+    }
+    .title h1 {
+        font-size: 2.8rem;
     }
 }
