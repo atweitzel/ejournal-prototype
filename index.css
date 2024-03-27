@@ -11,13 +11,14 @@
 
 :root {
     font-size: 18px;
+    font-family: "prestige-elite-std", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
     -webkit-font-smoothing: antialiased;
     /* color vars */
     --text-purple: #6c4e6a;
     --text-grey: #414141;
     --bg-white: #fdfdfd;
     /* size vars */
-    --nav-height: 3.5rem;
+    --nav-height: 3rem;
     --home-padding: 1.2rem;
     --home-max-width: 55rem;
     --std-text-inc: 1.1rem;
@@ -38,7 +39,6 @@ html {
     background: var(--bg-white);
     z-index: 100;
     margin: auto;
-    font-family: "prestige-elite-std", monospace;
     letter-spacing: 0.5;
 }
 
@@ -182,7 +182,6 @@ html {
 }
 
 .issue-desc {
-    font-family: "prestige-elite-std", monospace;
     margin-bottom: var(--home-padding);
     color: var(--text-grey);
 }
@@ -190,7 +189,6 @@ html {
 .issue-desc h5 {
     font-weight: 800;
     font-size: 1.2em;
-    font-family: "prestige-elite-std", monospace;
     margin-bottom: var(--std-text-inc);
 }
 
@@ -204,7 +202,6 @@ html {
 }
 
 .issue-desc li {
-    font-family: "prestige-elite-std", monospace;
     font-size: var(--std-text-inc);
     list-style: none;
 }
@@ -214,7 +211,6 @@ html {
 }
 
 .home {
-    font-family: "prestige-elite-std", monospace;
     font-size: var(--std-text-inc); 
     /* text details are defined below in body class. need to change the class on issue01.html to avoid doubling */
     
@@ -347,7 +343,6 @@ html {
 }
 
 .body { 
-    font-family: "prestige-elite-std", monospace;
     font-size: var(--std-text-inc);
     color: var(--text-grey);
 }
@@ -365,13 +360,11 @@ html {
     grid-area:body;
     z-index: 0;
     text-align: right;
-    font-family: "prestige-elite-std", monospace;
     padding-right: 10px;
     margin-left: auto;
 }
 
 .article_list h4 {
-    font-family: "prestige-elite-std", monospace;
     font-weight: 200;
     font-size:1.5rem;
     margin-top: 10px;
@@ -423,6 +416,25 @@ img.center {
     100% {
         -webkit-filter: grayscale(0%);
     }
+}
+
+/*
+*** issue 01 article styling ***
+*/
+
+.back-left {
+    position: fixed;
+    margin-top: var(--nav-height);
+    font-size: var(--std-text-inc);
+    font-weight: 600;
+    padding-inline: 1rem;
+    border: dotted black 2px;
+    border-radius: 5px;
+}
+
+.back-left a {
+    text-decoration: none;
+    color: var(--text-grey);
 }
 
 /* Breakpoints for tiny screens if needed */
